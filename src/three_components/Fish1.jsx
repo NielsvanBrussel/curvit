@@ -7,7 +7,11 @@ import { useFrame, useThree } from '@react-three/fiber'
 const Fish1 = ({ child }) => {
 
     const { clock } = useThree()
+
+
     const fishRef = useRef()
+
+
 
 
     // User has switched back to the tab
@@ -31,9 +35,15 @@ const Fish1 = ({ child }) => {
     }, []);
 
 
+
+
     useFrame((state, delta) => {
 
+       
+
             const time = state.clock.getElapsedTime()
+            console.log(time)
+
 
             if (fishRef.current.position.x > 2) {
                 if (fishRef.current.rotation.y > (Math.PI)) {
@@ -46,8 +56,8 @@ const Fish1 = ({ child }) => {
                 }
             }
             
-            fishRef.current.position.x += Math.sin(time) * 0.004
-            fishRef.current.position.y += Math.sin(time * 3) * 0.0006   
+            fishRef.current.position.x += Math.sin(time) * 0.7 * delta
+            fishRef.current.position.y += Math.sin(time * 3) * 0.09  * delta 
 
       
     })
@@ -63,6 +73,7 @@ const Fish1 = ({ child }) => {
                 receiveShadow={true} 
                 material={child.children[0].material} 
                 geometry={child.children[0].geometry}
+
             >
             </mesh>
             <mesh ref={fishRef}
@@ -70,6 +81,7 @@ const Fish1 = ({ child }) => {
                 receiveShadow={true} 
                 material={child.children[1].material} 
                 geometry={child.children[1].geometry}
+
             >
             </mesh>
             <mesh ref={fishRef}
@@ -77,6 +89,7 @@ const Fish1 = ({ child }) => {
                 receiveShadow={true} 
                 material={child.children[2].material} 
                 geometry={child.children[2].geometry}
+
             >
             </mesh>
 

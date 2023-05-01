@@ -53,8 +53,8 @@ const Fish2 = ({ child }) => {
             fishRef.current.rotation.y = Math.PI * 2            
         }
         
-        fishRef.current.position.x += Math.cos(time) * 0.003
-        fishRef.current.position.z += Math.cos(time * 3) * 0.002
+        fishRef.current.position.x += Math.cos(time) * 0.5 * delta
+        fishRef.current.position.z += Math.cos(time * 3) * 0.3 * delta
       
     })
 
@@ -68,6 +68,7 @@ const Fish2 = ({ child }) => {
                 receiveShadow={true} 
                 material={child.children[0].material} 
                 geometry={child.children[0].geometry}
+
             >
             </mesh>
             <mesh ref={fishRef}
@@ -75,6 +76,7 @@ const Fish2 = ({ child }) => {
                 receiveShadow={true} 
                 material={child.children[1].material} 
                 geometry={child.children[1].geometry}
+
             >
             </mesh>
             <mesh ref={fishRef}
@@ -82,6 +84,7 @@ const Fish2 = ({ child }) => {
                 receiveShadow={true} 
                 material={child.children[2].material} 
                 geometry={child.children[2].geometry}
+
             >
             </mesh>
  

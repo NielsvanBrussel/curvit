@@ -7,7 +7,9 @@ import Fish2 from './Fish2';
 const Default = () => {
 
        
-        const model = useGLTF("./desk.glb")         
+        const model = useGLTF("./desk.glb")  
+        console.log(model)
+        
 
         model.scene.castShadow = true
         model.scene.receiveShadow = true
@@ -21,8 +23,8 @@ const Default = () => {
                 if (child instanceof THREE.Group) {
                     child.children.forEach((groupchild) => {
                         
-                    groupchild.castShadow = true;
-                    groupchild.receiveShadow = true;                            
+                            groupchild.castShadow = true;
+                            groupchild.receiveShadow = true;                            
                         
                     });
                 }
@@ -86,6 +88,7 @@ const Default = () => {
                 if (child.name === 'fish2') {
                     return <Fish2 child={child} />
                 } else {
+
                     return (
                         child.children.map((subchild, index) => {
                             return (
