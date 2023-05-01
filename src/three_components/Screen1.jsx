@@ -7,8 +7,6 @@ const Screen1 = () => {
 
   const { nodes, materials } = useGLTF("./screen1.glb")
 
- 
-
   const [video] = useState(() => {
     const vid = document.createElement("video")
     vid.src = url

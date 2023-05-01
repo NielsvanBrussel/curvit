@@ -22,9 +22,9 @@ function App() {
 
   return (
     <>
-      <div style={{ position:'absolute', left: 0, alignItems: 'center', width: '100%', margin: '0 auto'}}>
+      {/* <div style={{ position:'absolute', left: 0, alignItems: 'center', width: '100%', margin: '0 auto'}}>
           <h1 style={{ fontSize: '5rem'}}>CV</h1> 
-      </div>
+      </div> */}
       <Canvas shadows camera={camera}>
         <Lights />
         <OrbitControls maxPolarAngle={Math.PI / 2} minPolarAngle={0}/>

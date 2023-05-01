@@ -10,8 +10,6 @@ const Fish1 = ({ child }) => {
     const fishRef = useRef()
 
 
-
-
     // User has switched back to the tab
     const onFocus = () => {
 
@@ -31,8 +29,6 @@ const Fish1 = ({ child }) => {
             window.removeEventListener("focus", onFocus);
         };
     }, []);
-
-
 
 
     useFrame((state, delta) => {
@@ -67,7 +63,6 @@ const Fish1 = ({ child }) => {
                 receiveShadow={true} 
                 material={child.children[0].material} 
                 geometry={child.children[0].geometry}
-
             >
             </mesh>
             <mesh ref={fishRef}
@@ -75,7 +70,6 @@ const Fish1 = ({ child }) => {
                 receiveShadow={true} 
                 material={child.children[1].material} 
                 geometry={child.children[1].geometry}
-
             >
             </mesh>
             <mesh ref={fishRef}
@@ -83,7 +77,6 @@ const Fish1 = ({ child }) => {
                 receiveShadow={true} 
                 material={child.children[2].material} 
                 geometry={child.children[2].geometry}
-
             >
             </mesh>
 
