@@ -13,7 +13,7 @@ const Loading = () => {
   return (
     <mesh ref={ cubeRef }> 
         <boxGeometry attach="geometry" args={[1, 1, 1]} />
-        <meshStandardMaterial attach="material" color={"red"} opacity={0.5} />
+        <meshStandardMaterial attach="material" color={"white"} opacity={0.5} />
     </mesh>
   )
 }

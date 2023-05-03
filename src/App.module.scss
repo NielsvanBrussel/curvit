@@ -1,0 +1,68 @@
+@import './styles/shared/colours';
+  
+  
+  
+  #root {
+    max-width: calc(1280px);
+    margin: 0 auto;
+    padding: 2rem 0rem;
+    text-align: center;
+  }
+
+  .container__outer {
+    
+    margin: 4rem 4vw;
+  }
+
+  .container__inner {
+    max-width: calc(1280px);
+    margin: 0rem auto;
+
+  }
+
+
+  .content__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    height: calc(100vh - 8rem);     // full view - container margin - header - footer
+    .flex__container {
+        width: 50%;
+        border: $colour-blue-light 3px solid;
+        background-color: $colour-blue-medium;
+        border-radius: 1rem;
+    }
+    .section__container {
+        overflow: hidden;
+    }
+    .section__container__outer::-webkit-scrollbar {
+        display: none;
+    }
+  }
+
+  .content__container__mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    height: calc(100vh - 8rem);     // full view - container margin - header - footer
+    max-height: calc(100vh - 8rem);     // full view - container margin - header - footer
+
+    .flex__container__mobile {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      border: $colour-blue-light 3px solid;
+      background-color: $colour-blue-medium;
+      border-radius: 1rem;
+    }
+    .section__container__mobile {
+        overflow: hidden;
+    }
+    .section__container__outer__mobile::-webkit-scrollbar {
+        display: none;
+    }
+  }
+
+  

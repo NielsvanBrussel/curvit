@@ -1,37 +1,61 @@
-import { useState, Suspense } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Canvas } from '@react-three/fiber'
+
+import React, { useState, useEffect } from 'react'
+
+import styles from './styles/App.module.css'
 import Experience from './Experience'
-import { OrbitControls } from '@react-three/drei'
-import Loading from './Loading'
-import Lights from './three_components/Lights'
+import Sections from './components/Sections'
+import SectionsMobile from './components/SectionsMobile'
 
 
 
 function App() {
 
+  const initialWidth = window.innerWidth
 
-  const camera = {
-    fov: 45,
-    near: 0.1,
-    far: 200,
-    position: [ 16.5, 6.5, 10 ]
+  const [mobileViewMode, setMobileViewMode] = useState(initialWidth > 900 ? false : true)
+
+
+  const changeViewMode = () => {
+
+    if (window.innerWidth < 900 && mobileViewMode === false) {
+      setMobileViewMode(true)
+    } else if (window.innerWidth > 900 && mobileViewMode === true) {
+      setMobileViewMode(false)
+    }
   }
+
+
+  window.addEventListener("resize", changeViewMode);
+
+  useEffect(() => {
+    console.log(mobileViewMode)
+  }, [mobileViewMode])
+  
+
 
   return (
     <>
-      {/* <div style={{ position:'absolute', left: 0, alignItems: 'center', width: '100%', margin: '0 auto'}}>
-          <h1 style={{ fontSize: '5rem'}}>CV</h1> 
-      </div> */}
-      <Canvas shadows camera={camera}>
-        <Lights />
-        <OrbitControls maxPolarAngle={Math.PI / 2} minPolarAngle={0}/>
-        <Suspense fallback={ <Loading /> }> 
-          <Experience />
-        </Suspense>
-      </Canvas>
+      <div className={styles.container__outer}>
+      <div className={styles.container__inner}>
+        { mobileViewMode ? 
+          <div className={styles.content__container__mobile}>
+            <div className={styles.flex__container__mobile}>
+              <SectionsMobile />
+            </div>
+          </div>  
+        :
+          <div className={styles.content__container}>
+            <div className={styles.flex__container}>
+              <Sections />
+            </div>
+            <div className={styles.flex__container}>
+              <Experience />
+            </div>
+          </div>        
+        }
+
+        </div>
+      </div>
     </>
   )
 }

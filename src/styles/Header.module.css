@@ -1,0 +1,8 @@
+.header__container {
+  height: 4rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+/*# sourceMappingURL=Header.module.css.map */

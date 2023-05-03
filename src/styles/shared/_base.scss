@@ -1,0 +1,49 @@
+@import './colours';
+@import './keyframes';
+
+.section__outer {
+    margin-bottom: 1rem;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: none;
+}
+
+
+.section__outer::-webkit-scrollbar {
+    width: 0.6rem;
+    background: transparent;
+    border-radius: 2rem;
+    margin-bottom: 0.5rem;
+    
+  }
+  .section__outer::-webkit-scrollbar-track {
+    background-color: $colour-purple-medium;
+    color: transparent;
+    margin: 2rem 0rem 6rem 0rem;
+    border-radius: 2rem;
+   
+  }
+  
+  .section__outer::-webkit-scrollbar-thumb {
+    background: $colour-purple-light;
+    border-radius: 2rem;
+  }
+
+
+.section__outer:last-child {
+    margin-bottom: 0;
+}
+
+.section__inner {
+    margin: 2rem auto 8rem auto;
+    width: 80%;
+    height: auto;
+    overflow: hidden;
+    animation: waps 0.5s ease-in;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}

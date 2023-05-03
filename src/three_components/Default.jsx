@@ -1,18 +1,27 @@
 import React, { useRef, useEffect} from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 import * as THREE from "three";
 import Fish1 from './Fish1';
 import Fish2 from './Fish2';
+import Screen from './Screen';
+import url1 from "/video1.mp4";
+import url2 from "/video2.mp4";
+
 
 const Default = () => {
 
-       
-        const model = useGLTF("./desk.glb")  
-        console.log(model)
-        
-
+        const model = useGLTF("./desk.glb")         
         model.scene.castShadow = true
         model.scene.receiveShadow = true
+
+
+        
+        // useFrame((state, delta) =>
+        // {
+        //     console.log(state.camera.position)
+        // })
+
 
         const applyShadows = () => {
             model.scene.children.forEach((child) => {
@@ -29,11 +38,10 @@ const Default = () => {
                     });
                 }
             })
-
             return (model)
         }
+        const shadowModel = applyShadows()
 
-        const model2 = applyShadows()
 
         const Aquarium = ({ child }) => {
            
@@ -56,10 +64,10 @@ const Default = () => {
                     )          
         }
 
+
         const SubGroup = ({ child }) => {
             
             if (child.name === 'glass') {
-              
                 return (
                     child.children.map((subchild, index) => {
                         subchild.material = new THREE.MeshPhysicalMaterial();
@@ -81,14 +89,12 @@ const Default = () => {
                     })
                 )    
             } else {
-
                 if (child.name === 'fish1') {
                     return <Fish1 child={child} />
                 } 
                 if (child.name === 'fish2') {
                     return <Fish2 child={child} />
                 } else {
-
                     return (
                         child.children.map((subchild, index) => {
                             return (
@@ -104,42 +110,37 @@ const Default = () => {
                 }
 
             }
-
         }
 
     return (
     <group>
-        {model2.scene.children.map(((child, index) => {
-            console.log(child)
-    
-        if (child instanceof THREE.Mesh) {
-
-            if (child.name === 'aquarium') {
-                return <Aquarium child={child} />
-            } 
-            if (child.name === 'fish1') {
-                return <Fish1 child={child} />
-            } 
-            if (child.name === 'fish2') {
-                return <Fish2 child={child} />
-            } else {
-                return (
-                    <mesh key={index}
-                        castShadow={child.castShadow} 
-                        receiveShadow={child.receiveShadow} 
-                        material={child.material} 
-                        geometry={child.geometry}>            
-                    </mesh>
-                )                
+        { shadowModel.scene.children.map((child, index) => {
+            if (child instanceof THREE.Mesh) {
+                if (child.name === 'aquarium') {
+                    return <Aquarium child={child} />
+                } 
+                if (child.name === 'screen000') {
+                    return <Screen child={child} url={url1}/>
+                } 
+                if (child.name === 'screen001') {
+                    return <Screen child={child} url={url2}/>
+                } else {
+                    return (
+                        <mesh key={index}
+                            castShadow={child.castShadow} 
+                            receiveShadow={child.receiveShadow} 
+                            material={child.material} 
+                            geometry={child.geometry}>            
+                        </mesh>
+                    )                
+                }
+            } else  if (child instanceof THREE.Group) {
+                    return (
+                        <SubGroup key={index} child={child}/>
+                    )
+                
             }
-
-        } else  if (child instanceof THREE.Group) {
-                return (
-                    <SubGroup key={index} child={child}/>
-                )
-            
-        }
-        }))}
+        })}
     </group>
     )
 }

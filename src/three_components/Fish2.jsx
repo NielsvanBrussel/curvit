@@ -6,8 +6,6 @@ import { useFrame, useThree } from '@react-three/fiber'
 
 const Fish2 = ({ child }) => {
 
-    console.log(child)
-
     const { clock } = useThree()
     const fishRef = useRef()
 

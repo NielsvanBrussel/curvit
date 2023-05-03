@@ -39,12 +39,7 @@ const Fish1 = ({ child }) => {
 
     useFrame((state, delta) => {
 
-       
-
             const time = state.clock.getElapsedTime()
-            console.log(time)
-
-
             if (fishRef.current.position.x > 2) {
                 if (fishRef.current.rotation.y > (Math.PI)) {
                     fishRef.current.rotation.y -= delta * 5
@@ -58,7 +53,6 @@ const Fish1 = ({ child }) => {
             
             fishRef.current.position.x += Math.sin(time) * 0.7 * delta
             fishRef.current.position.y += Math.sin(time * 3) * 0.09  * delta 
-
       
     })
 
