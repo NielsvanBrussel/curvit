@@ -15,7 +15,7 @@ const Projects = () => {
                 <div className={styles.container}>
                     <div className={styles.card}>
                         <div className={styles.top__container}>
-                            <img className={styles.img} src={'/images/projects_1.png'} alt="project" />
+                            <img className={styles.img} src={'./images/projects_1.png'} alt="project" />
                             <div className={styles.layer}>
                                 <div className={styles.layer__text}>
                                     <h3 onClick={() => window.open('https://nielsvanbrussel.github.io/gardenerWebsite/')}>gardener website</h3>
@@ -34,7 +34,7 @@ const Projects = () => {
                     </div>
                     <div className={styles.card}>
                         <div className={styles.top__container}>
-                            <img className={styles.img} src={'/images/projects_2.png'} alt="project" />
+                            <img className={styles.img} src={'./images/projects_2.png'} alt="project" />
                             <div className={styles.layer}>
                                 <div className={styles.layer__text}>
                                     <h3 onClick={() => window.open('https://nielsvanbrussel.github.io/graphcalc/')}>graphing calculator</h3>
@@ -55,7 +55,7 @@ const Projects = () => {
                     </div>
                     <div className={styles.card}>
                         <div className={styles.top__container}>
-                            <img className={styles.img} src={'/images/projects_3.png'} alt="project" />
+                            <img className={styles.img} src={'./images/projects_3.png'} alt="project" />
                             <div className={styles.layer}>
                                 <div className={styles.layer__text}>
                                     <h3 onClick={() => window.open('https://nielsvanbrussel.github.io/carmod/')}>car modifier</h3>
@@ -77,7 +77,7 @@ const Projects = () => {
                     </div>
                     <div className={styles.card}>
                         <div className={styles.top__container}>
-                            <img className={styles.img} src={'/images/projects_4.png'} alt="project" />
+                            <img className={styles.img} src={'./images/projects_4.png'} alt="project" />
                             <div className={styles.layer}>
                                 <div className={styles.layer__text}>
                                     <h3 onClick={() => window.open('https://nielsvanbrussel.github.io/orchard/')}>orchard</h3>
@@ -90,7 +90,6 @@ const Projects = () => {
                                         <SiBlender className={styles.layer__icon} size={26}/>
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                         <div className={styles.bottom__container}>

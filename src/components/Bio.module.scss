@@ -1,2 +1,14 @@
 @import '../styles/shared/colours';
 @import '../styles/shared/base';
+
+.header__ul {
+    margin: 2rem 0rem;
+}
+
+.header__li {
+    margin: 1rem 0rem;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}

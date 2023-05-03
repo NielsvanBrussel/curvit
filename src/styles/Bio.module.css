@@ -60,4 +60,17 @@ h1 {
   margin-bottom: 3rem;
   font-size: 2rem;
 }
+
+.header__ul {
+  margin: 2rem 0rem;
+}
+
+.header__li {
+  margin: 1rem 0rem;
+}
+
+.header__li a {
+  text-decoration: none;
+  color: inherit;
+}
 /*# sourceMappingURL=Bio.module.css.map */
