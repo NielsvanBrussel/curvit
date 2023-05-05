@@ -1,4 +1,4 @@
-@-webkit-keyframes waps {
+@-webkit-keyframes fade-in {
   from {
     opacity: 0;
   }
@@ -7,12 +7,70 @@
   }
 }
 
-@keyframes waps {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes fill-box {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #0fabbe;
+  }
+}
+
+@keyframes fill-box {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #0fabbe;
+  }
+}
+
+@-webkit-keyframes left-right {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes left-right {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@-webkit-keyframes hover-title {
+  0% {
+    color: rgba(255, 255, 255, 0.87);
+    text-decoration: none;
+  }
+  100% {
+    color: #0fabbe;
+    text-decoration: underline;
+  }
+}
+
+@keyframes hover-title {
+  0% {
+    color: rgba(255, 255, 255, 0.87);
+    text-decoration: none;
+  }
+  100% {
+    color: #0fabbe;
+    text-decoration: underline;
   }
 }
 
@@ -51,26 +109,40 @@
   width: 80%;
   height: auto;
   overflow: hidden;
-  -webkit-animation: waps 0.5s ease-in;
-          animation: waps 0.5s ease-in;
+  -webkit-animation: fade-in 0.5s ease-in;
+          animation: fade-in 0.5s ease-in;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 3rem;
   font-size: 2rem;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
 }
 
 .container {
   margin: 2rem 0;
+  width: 100%;
+}
+
+.card:hover {
+  width: 80% !important;
+  scale: 1;
 }
 
 .card {
-  max-width: 20rem;
-  margin: 2rem auto;
+  scale: 0.8;
+  margin: 0rem auto;
   border: solid 3px #0fabbe;
   border-radius: 1rem;
   overflow: hidden;
+  -webkit-box-shadow: 3px 3px 5px 3px #3e1a57;
+          box-shadow: 3px 3px 5px 3px #3e1a57;
+  width: 80%;
+  height: 100%;
+  -webkit-transition: scale 0.75s;
+  transition: scale 0.75s;
 }
 
 .card .top__container {
@@ -102,14 +174,18 @@ h1 {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 1.4rem;
+  font-family: 'Bungee-Regular';
 }
 
 .card .top__container .layer .layer__text h3 {
   cursor: pointer;
+  -webkit-transition: color linear 1s;
+  transition: color linear 1s;
 }
 
 .card .top__container .layer .layer__text h3:hover {
   text-decoration: underline;
+  color: #0fabbe;
 }
 
 .card .top__container .layer .layer__icon__container {
@@ -122,7 +198,7 @@ h1 {
           flex-direction: row;
   position: absolute;
   gap: 1vw;
-  bottom: 1rem;
+  bottom: 0rem;
   left: 1rem;
 }
 

@@ -1,5 +1,6 @@
 @import '../styles/shared/colours';
 @import '../styles/shared/base';
+@import '../styles/shared/keyframes';
 
 
 
@@ -39,8 +40,17 @@
 
 .exp__item {
     text-decoration: none;
-    margin-bottom: 0.5rem;
     margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    animation: fade-in linear 2s forwards;
+    opacity: 0;
+}
+
+
+@for $i from 1 through 3 {
+    .exp__list .exp__item:nth-child(#{$i}n) {
+        animation-delay: #{($i) * 1}s;
+    }
 }
 
 .exp__list__header {

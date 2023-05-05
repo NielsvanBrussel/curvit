@@ -43,7 +43,7 @@ const Projects = () => {
                                         <SiCss3 className={styles.layer__icon} size={26}/>
                                         <SiHtml5 className={styles.layer__icon} size={26}/>
                                         <SiReact className={styles.layer__icon} size={26}/>
-                                        <img className={styles.layer__d3} src = "/images/d3-js.svg" alt="My Happy SVG"/>
+                                        <img className={styles.layer__d3} src = "./images/d3-js.svg" alt="My Happy SVG"/>
                                     </div>
                                 </div>
                                 

@@ -1,4 +1,38 @@
-@keyframes waps {
+@import './colours';
+
+
+@keyframes fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+
+@keyframes fill-box {
+    0% {
+        background-color: transparent;
+    }
+    100% {
+        background-color: $colour-blue-light;
+    }
+}
+
+
+@keyframes left-right {
+    0% {
+        margin-left: -100%;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@keyframes hover-title {
+    0% {
+        color: $white-font;
+        text-decoration: none;
+    }
+    100% {
+        color: $colour-blue-light;
+        text-decoration: underline;
+    }
 }

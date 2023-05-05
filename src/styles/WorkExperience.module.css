@@ -1,4 +1,4 @@
-@-webkit-keyframes waps {
+@-webkit-keyframes fade-in {
   from {
     opacity: 0;
   }
@@ -7,12 +7,70 @@
   }
 }
 
-@keyframes waps {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes fill-box {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #0fabbe;
+  }
+}
+
+@keyframes fill-box {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #0fabbe;
+  }
+}
+
+@-webkit-keyframes left-right {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes left-right {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@-webkit-keyframes hover-title {
+  0% {
+    color: rgba(255, 255, 255, 0.87);
+    text-decoration: none;
+  }
+  100% {
+    color: #0fabbe;
+    text-decoration: underline;
+  }
+}
+
+@keyframes hover-title {
+  0% {
+    color: rgba(255, 255, 255, 0.87);
+    text-decoration: none;
+  }
+  100% {
+    color: #0fabbe;
+    text-decoration: underline;
   }
 }
 
@@ -51,14 +109,54 @@
   width: 80%;
   height: auto;
   overflow: hidden;
-  -webkit-animation: waps 0.5s ease-in;
-          animation: waps 0.5s ease-in;
+  -webkit-animation: fade-in 0.5s ease-in;
+          animation: fade-in 0.5s ease-in;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 3rem;
   font-size: 2rem;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fill-box {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #0fabbe;
+  }
+}
+
+@keyframes left-right {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes hover-title {
+  0% {
+    color: rgba(255, 255, 255, 0.87);
+    text-decoration: none;
+  }
+  100% {
+    color: #0fabbe;
+    text-decoration: underline;
+  }
 }
 
 .exp__list {
@@ -106,8 +204,26 @@ h1 {
 
 .exp__item {
   text-decoration: none;
-  margin-bottom: 0.5rem;
   margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  -webkit-animation: fade-in linear 2s forwards;
+          animation: fade-in linear 2s forwards;
+  opacity: 0;
+}
+
+.exp__list .exp__item:nth-child(1n) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.exp__list .exp__item:nth-child(2n) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.exp__list .exp__item:nth-child(3n) {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
 }
 
 .exp__list__header {

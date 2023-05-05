@@ -1,5 +1,6 @@
 @import '../styles/shared/colours';
 @import '../styles/shared/base';
+@import '../styles/shared/keyframes';
 
 
 .container {
@@ -28,6 +29,18 @@
     border-top: $colour-blue-light solid 3px;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
+}
+
+.progressbar__container {
+    width: 100%;
+    border: solid 3px $colour-purple-medium;
+    border-radius: 1rem;
+}
+
+.progressbar {
+    background-color: $colour-purple-light;
+    height: 0.5rem;
+    border-radius: 1rem;
 }
 
 .button__container__hidden {

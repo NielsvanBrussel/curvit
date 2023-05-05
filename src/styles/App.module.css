@@ -1,11 +1,32 @@
+:root {
+  --progressbar-start-width: 0;
+  --progressbar-end-width: 0;
+}
+
+@font-face {
+  font-family: "Exo-Regular";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/Heebo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bungee-Regular";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/Bungee-Regular.ttf") format("truetype");
+}
+
 #root {
   max-width: calc(1280px);
   margin: 0 auto;
   padding: 2rem 0rem;
   text-align: center;
+  font-family: 'Exo-Regular';
 }
 
 .container__outer {
+  font-family: 'Exo-Regular';
   margin: 4rem 4vw;
 }
 

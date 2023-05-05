@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Education from './Education';
 import Projects from './Projects';
 import Bio from './Bio';
@@ -12,8 +12,7 @@ import { TbArrowBigLeftLineFilled, TbArrowBigRightLineFilled } from 'react-icons
 const Sections = () => {
 
     const [tab, setTab] = useState(0)
-
-
+    
     const prevTab = () => {
         setTab(prevState => prevState - 1)
     }
@@ -63,8 +62,8 @@ const Sections = () => {
                     <TbArrowBigLeftLineFilled className={styles.button__icon}/>
                 </div>
             }
-            <div style={{ width: '100%', opacity: 1, border: 'solid 3px #3e1a57', borderRadius: '1rem'}}>
-                <div style={{ width: `calc(${tab} * 20%)`, backgroundColor: '#820fdf', height: '0.5rem', borderRadius: '1rem' }}></div>
+            <div className={styles.progressbar__container} >
+                <div style={{ width: `calc(${tab} * 20%)` }} className={styles.progressbar}></div>
             </div>
             {tab !== 5 ?        
                 <div className={styles.button__container} onClick={() => nextTab()}>

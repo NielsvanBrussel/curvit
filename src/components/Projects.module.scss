@@ -5,14 +5,24 @@
 
 .container {
     margin: 2rem 0;
+    width: 100%;
+}
+
+.card:hover {
+    width: 80% !important;
+    scale: 1;
 }
 
 .card {
-    max-width: 20rem;
-    margin: 2rem auto;
+    scale: 0.8;
+    margin: 0rem auto;
     border: solid 3px $colour-blue-light;
     border-radius: 1rem;
     overflow: hidden;
+    box-shadow: 3px 3px 5px 3px $colour-purple-medium;
+    width: 80%;
+    height: 100%;
+    transition: scale 0.75s;
     .top__container {
         height: auto;
         overflow: hidden;
@@ -31,11 +41,14 @@
                 justify-content: center;
                 flex-direction: column;
                 font-size: 1.4rem;
+                font-family: 'Bungee-Regular';
                 h3 {
                     cursor: pointer;
+                    transition: color linear 1s;
                 }
                 h3:hover {
                     text-decoration: underline;
+                    color: $colour-blue-light;
                 }
             }
             .layer__icon__container {
@@ -43,7 +56,7 @@
                 flex-direction: row;
                 position: absolute;
                 gap: 1vw;
-                bottom: 1rem;
+                bottom: 0rem;
                 left: 1rem;
                 .layer__icon {
                     color: $colour-purple-light;
@@ -58,6 +71,7 @@
             }
         }
     }
+    
     .bottom__container {
         background-color: $colour-blue-dark;
         display: flex;

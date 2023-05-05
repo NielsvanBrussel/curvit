@@ -1,4 +1,6 @@
 @import './styles/shared/colours';
+@import './styles/shared/variables';
+@import './styles/shared/fonts';
   
   
   
@@ -7,10 +9,11 @@
     margin: 0 auto;
     padding: 2rem 0rem;
     text-align: center;
+    font-family: 'Exo-Regular';
   }
 
   .container__outer {
-    
+    font-family: 'Exo-Regular';
     margin: 4rem 4vw;
   }
 

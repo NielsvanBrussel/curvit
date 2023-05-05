@@ -1,5 +1,6 @@
 @import '../styles/shared/colours';
 @import '../styles/shared/base';
+@import '../styles/shared/keyframes';
 
 
 .exp__list {
@@ -14,6 +15,7 @@
     justify-content: space-between;
 }
 
+
 .exp__list__item__title {
     width: 12rem;
 }
@@ -23,20 +25,24 @@
     flex-direction: row;
 }
 
+
+@for $i from 1 through 5 {
+    .exp__list__ratingbox .exp__list__ratingbox__filled:nth-child(#{$i}n) {
+        animation-delay: #{($i - 0) * 0.5}s;
+    }
+}
+
 .exp__list__ratingbox__filled, .exp__list__ratingbox__unfilled {
     margin: auto 0.25rem;
     height: 0.75rem;
     width: 0.75rem;
     border: $white-font solid 0.25rem;
     border-radius: 1rem;
+    background-color: transparent;
 }
 
 .exp__list__ratingbox__filled {
-    background-color: $colour-blue-light
-}
-
-.exp__list__ratingbox__unfilled {
-    background-color: transparent;
+    animation: fill-box linear 1.5s forwards;
 }
 
 .exp__item {

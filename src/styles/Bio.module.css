@@ -1,4 +1,4 @@
-@-webkit-keyframes waps {
+@-webkit-keyframes fade-in {
   from {
     opacity: 0;
   }
@@ -7,12 +7,70 @@
   }
 }
 
-@keyframes waps {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes fill-box {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #0fabbe;
+  }
+}
+
+@keyframes fill-box {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #0fabbe;
+  }
+}
+
+@-webkit-keyframes left-right {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes left-right {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@-webkit-keyframes hover-title {
+  0% {
+    color: rgba(255, 255, 255, 0.87);
+    text-decoration: none;
+  }
+  100% {
+    color: #0fabbe;
+    text-decoration: underline;
+  }
+}
+
+@keyframes hover-title {
+  0% {
+    color: rgba(255, 255, 255, 0.87);
+    text-decoration: none;
+  }
+  100% {
+    color: #0fabbe;
+    text-decoration: underline;
   }
 }
 
@@ -51,14 +109,16 @@
   width: 80%;
   height: auto;
   overflow: hidden;
-  -webkit-animation: waps 0.5s ease-in;
-          animation: waps 0.5s ease-in;
+  -webkit-animation: fade-in 0.5s ease-in;
+          animation: fade-in 0.5s ease-in;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 3rem;
   font-size: 2rem;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
 }
 
 .header__ul {

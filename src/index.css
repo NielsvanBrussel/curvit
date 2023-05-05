@@ -21,6 +21,21 @@ body {
   min-height: 100vh;
 }
 
+@font-face {
+  font-family: "Exo-Regular";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/Heebo-Regular.ttf") format("truetype");
+}
+
+
+@font-face {
+  font-family: "Bungee-Regular";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./assets/fonts/Bungee-Regular.ttf") format("truetype");
+}
+
 
 
 
