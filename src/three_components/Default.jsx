@@ -7,11 +7,16 @@ import Fish2 from './Fish2';
 import Screen from './Screen';
 import url1 from "/video1.mp4";
 import url2 from "/video2.mp4";
+import Clock from './Clock';
+import ClockPointer1 from './ClockPointer1'
+import ClockPointer2 from './ClockPointer2'
+import DesktopLights from './DesktopLights';
 
 
 const Default = () => {
 
-        const model = useGLTF("./desk.glb")         
+        const model = useGLTF("./room.glb")   
+        
         model.scene.castShadow = true
         model.scene.receiveShadow = true
 
@@ -25,6 +30,7 @@ const Default = () => {
 
         const applyShadows = () => {
             model.scene.children.forEach((child) => {
+                console.log(child)
                 
                     child.castShadow = true;
                     child.receiveShadow = true;                            
@@ -94,6 +100,12 @@ const Default = () => {
                 } 
                 if (child.name === 'fish2') {
                     return <Fish2 child={child} />
+                } 
+                if (child.name === 'clock') {
+                    return <Clock child={child}/>
+                }
+                if (child.name === 'desktop_lights') {
+                    return <DesktopLights child={child} />
                 } else {
                     return (
                         child.children.map((subchild, index) => {
@@ -124,6 +136,12 @@ const Default = () => {
                 } 
                 if (child.name === 'screen001') {
                     return <Screen child={child} url={url2}/>
+                } 
+                if (child.name === 'clock_pointer1') {
+                    return <ClockPointer1 child={child} />
+                } 
+                if (child.name === 'clock_pointer2' || child.name === 'clock_pointer3') {
+                    return <ClockPointer2 child={child} />
                 } else {
                     return (
                         <mesh key={index}
