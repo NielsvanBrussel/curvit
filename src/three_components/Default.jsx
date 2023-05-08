@@ -55,7 +55,6 @@ const Default = () => {
                     child.material.roughness = 0;
                     child.material.color.set(0x8bd7d0); 
                     child.material.ior = 2;
-                    child.material.thickness = 0.5;
                     child.material.transmission = 1;
                     child.material.opacity = 1;
                     child.material.depthWrite = false;

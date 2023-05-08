@@ -128,12 +128,12 @@ h1 {
 
 .card:hover {
   width: 80% !important;
-  scale: 1;
+  scale: 0.9;
 }
 
 .card {
   scale: 0.8;
-  margin: 0rem auto;
+  margin: 1rem auto;
   border: solid 3px #0fabbe;
   border-radius: 1rem;
   overflow: hidden;

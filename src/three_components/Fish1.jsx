@@ -10,6 +10,20 @@ const Fish1 = ({ child }) => {
 
 
     const fishRef = useRef()
+    let runAnimation = false
+
+    
+
+    setTimeout(() => {
+        startAnimation()
+    }, 2000);
+
+
+    const startAnimation = () => {
+        clock.running = false
+        clock.startTime = 0
+        runAnimation = true
+    }
 
 
 
@@ -40,20 +54,23 @@ const Fish1 = ({ child }) => {
     useFrame((state, delta) => {
 
             const time = state.clock.getElapsedTime()
-            if (fishRef.current.position.x > 2) {
-                if (fishRef.current.rotation.y > (Math.PI)) {
-                    fishRef.current.rotation.y -= delta * 5
+            
+            if (runAnimation) {
+                if (fishRef.current.position.x > 2) {
+                    if (fishRef.current.rotation.y > (Math.PI)) {
+                        fishRef.current.rotation.y -= delta * 5
+                    }
+                    
+                } else if (fishRef.current.position.x < 1.5) {
+                    if (fishRef.current.rotation.y < (2 * Math.PI)) {
+                        fishRef.current.rotation.y += delta * 5
+                    }
                 }
                 
-            } else if (fishRef.current.position.x < 1.5) {
-                if (fishRef.current.rotation.y < (2 * Math.PI)) {
-                    fishRef.current.rotation.y += delta * 5
-                }
+                fishRef.current.position.x += Math.sin(time) * 0.7 * delta
+                fishRef.current.position.y += Math.sin(time * 3) * 0.09  * delta                 
             }
-            
-            fishRef.current.position.x += Math.sin(time) * 0.7 * delta
-            fishRef.current.position.y += Math.sin(time * 3) * 0.09  * delta 
-      
+
     })
 
            

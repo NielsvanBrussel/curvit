@@ -8,6 +8,18 @@ const Fish2 = ({ child }) => {
 
     const { clock } = useThree()
     const fishRef = useRef()
+    let runAnimation = false
+
+    setTimeout(() => {
+        startAnimation()
+    }, 2000);
+
+
+    const startAnimation = () => {
+        clock.running = false
+        clock.startTime = 0
+        runAnimation = true
+    }
 
 
     
@@ -35,28 +47,28 @@ const Fish2 = ({ child }) => {
     useFrame((state, delta) => {
 
         const time = state.clock.getElapsedTime()
-        if (fishRef.current.position.x > 1.9) {
-            if (fishRef.current.rotation.y > (-0.25 * Math.PI)) {
-                fishRef.current.rotation.y -= delta * 5
+        if (runAnimation) {
+            if (fishRef.current.position.x > 1.9) {
+                if (fishRef.current.rotation.y > (-0.25 * Math.PI)) {
+                    fishRef.current.rotation.y -= delta * 5
+                }
+                
+            } else if (fishRef.current.position.x < 1.5) {
+                if (fishRef.current.rotation.y < (0.75 * Math.PI)) {
+                    fishRef.current.rotation.y += delta * 5
+                }
             }
-             
-        } else if (fishRef.current.position.x < 1.5) {
-            if (fishRef.current.rotation.y < (0.75 * Math.PI)) {
-                fishRef.current.rotation.y += delta * 5
+
+            if (fishRef.current.position.x > 2.6 || fishRef.current.position.x < 0.8) {
+                fishRef.current.position.x = 2
+                fishRef.current.rotation.y = Math.PI * 2            
             }
+            
+            fishRef.current.position.x += Math.cos(time) * 0.5 * delta
+            fishRef.current.position.z += Math.cos(time * 3) * 0.3 * delta
         }
 
-        if (fishRef.current.position.x > 2.6 || fishRef.current.position.x < 0.8) {
-            fishRef.current.position.x = 2
-            fishRef.current.rotation.y = Math.PI * 2            
-        }
-        
-        fishRef.current.position.x += Math.cos(time) * 0.5 * delta
-        fishRef.current.position.z += Math.cos(time * 3) * 0.3 * delta
-      
     })
-
-           
 
     return (
         <group ref={fishRef} position={[2, 1.8, -0.2]} rotation={[0 , (Math.PI * -0.25) , 0]} >
