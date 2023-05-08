@@ -79,7 +79,6 @@ const Default = () => {
                         child.material.metalness = 0;
                         child.material.color.set(0xcae6ec); 
                         child.material.ior = 2;
-                        child.material.thickness = 0.5;
                         child.material.transmission = 0.9;
                         child.material.opacity = 1;
                         child.material.depthWrite = false;
