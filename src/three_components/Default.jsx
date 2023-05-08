@@ -30,7 +30,6 @@ const Default = () => {
 
         const applyShadows = () => {
             model.scene.children.forEach((child) => {
-                console.log(child)
                 
                     child.castShadow = true;
                     child.receiveShadow = true;                            
@@ -51,10 +50,12 @@ const Default = () => {
 
         const Aquarium = ({ child }) => {
            
+                    console.log(child)
                     child.material = new THREE.MeshPhysicalMaterial();
                     child.material.roughness = 0;
                     child.material.color.set(0x8bd7d0); 
-                    child.material.ior = 3;
+                    child.material.ior = 2;
+                    child.material.thickness = 0.5;
                     child.material.transmission = 1;
                     child.material.opacity = 1;
                     child.material.depthWrite = false;
@@ -71,19 +72,49 @@ const Default = () => {
         }
 
 
+        const Glass = ({ child }) => {
+            console.log(child)
+                
+                        child.material = new THREE.MeshPhysicalMaterial();
+                        child.material.roughness = 0;
+                        child.material.metalness = 0;
+                        child.material.color.set(0xcae6ec); 
+                        child.material.ior = 2;
+                        child.material.thickness = 0.5;
+                        child.material.transmission = 0.9;
+                        child.material.opacity = 1;
+                        child.material.depthWrite = false;
+                        child.material.depthTest = true;
+                        return (
+                            <mesh 
+                                castShadow={false} 
+                                receiveShadow={false} 
+                                material={child.material} 
+                                geometry={child.geometry}>
+                            </mesh>
+                        )
+                    
+              
+        }
+
+
         const SubGroup = ({ child }) => {
             
-            if (child.name === 'glass') {
+          
+            if (child.name === 'fish1') {
+                return <Fish1 child={child} />
+            } 
+            if (child.name === 'fish2') {
+                return <Fish2 child={child} />
+            } 
+            if (child.name === 'clock') {
+                return <Clock child={child}/>
+            }
+            if (child.name === 'desktop_lights') {
+                return <DesktopLights child={child} />
+            } else {
                 return (
                     child.children.map((subchild, index) => {
-                        subchild.material = new THREE.MeshPhysicalMaterial();
-                        subchild.material.roughness = 0;
-                        subchild.material.color.set(0xcae6ec); 
-                        subchild.material.ior = 3;
-                        subchild.material.transmission = 1;
-                        subchild.material.opacity = 1;
-                        subchild.material.depthWrite = false;
-                        subchild.material.depthTest = true;
                         return (
                             <mesh key={index}
                                 castShadow={subchild.castShadow} 
@@ -93,41 +124,17 @@ const Default = () => {
                             </mesh>
                         )
                     })
-                )    
-            } else {
-                if (child.name === 'fish1') {
-                    return <Fish1 child={child} />
-                } 
-                if (child.name === 'fish2') {
-                    return <Fish2 child={child} />
-                } 
-                if (child.name === 'clock') {
-                    return <Clock child={child}/>
-                }
-                if (child.name === 'desktop_lights') {
-                    return <DesktopLights child={child} />
-                } else {
-                    return (
-                        child.children.map((subchild, index) => {
-                            return (
-                                <mesh key={index}
-                                    castShadow={subchild.castShadow} 
-                                    receiveShadow={subchild.receiveShadow} 
-                                    material={subchild.material} 
-                                    geometry={subchild.geometry}>
-                                </mesh>
-                            )
-                        })
-                    )                
-                }
-
-            }
+                )                
+            }            
         }
 
     return (
     <group>
         { shadowModel.scene.children.map((child, index) => {
             if (child instanceof THREE.Mesh) {
+                if (child.name === 'glass') {
+                    return <Glass child={child} />
+                } 
                 if (child.name === 'aquarium') {
                     return <Aquarium child={child} />
                 } 
