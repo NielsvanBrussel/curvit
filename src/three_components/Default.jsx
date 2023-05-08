@@ -19,14 +19,11 @@ const Default = () => {
         
         model.scene.castShadow = true
         model.scene.receiveShadow = true
-
-
         
         // useFrame((state, delta) =>
         // {
         //     console.log(state.camera.position)
         // })
-
 
         const applyShadows = () => {
             model.scene.children.forEach((child) => {
