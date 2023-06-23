@@ -27,7 +27,7 @@
 
 .container__outer {
   font-family: 'Exo-Regular';
-  margin: 1.5rem 4vw;
+  margin: 1.5rem 4vw auto 4vw;
 }
 
 .container__inner {
