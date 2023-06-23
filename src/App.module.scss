@@ -14,7 +14,7 @@
 
   .container__outer {
     font-family: 'Exo-Regular';
-    margin: 4rem 4vw;
+    margin: 1.5rem 4vw;
   }
 
   .container__inner {
@@ -29,7 +29,7 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 2rem;
-    height: calc(100vh - 8rem);     // full view - container margin - header - footer
+    height: calc(100vh - 3rem);     // full view - container margin - header - footer
     .flex__container {
         width: 50%;
         border: $colour-blue-light 3px solid;
